@@ -7,8 +7,6 @@ export const site = {
   /** The single contact number for every call and WhatsApp button. */
   phone: "7843079954",
   phoneDisplay: "78430 79954",
-  /** Public enquiry email. */
-  email: "truviatechnologies@gmail.com",
 } as const;
 
 /** WhatsApp deep link with a pre-filled message. */
@@ -18,6 +16,11 @@ export function whatsappLink(message: string): string {
 
 export const telLink = `tel:+91${site.phone}`;
 
-export const mailLink = `mailto:${site.email}`;
+/** The web developer credited in the footer (NOT a Sai Krupa Properties contact). */
+export const developer = {
+  name: "Truvia Technologies",
+  url: "https://truviatechnologies.vercel.app",
+  email: "truviatechnologies@gmail.com",
+} as const;
 
 export const wordmark = "Sai Krupa Properties";

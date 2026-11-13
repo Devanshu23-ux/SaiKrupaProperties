@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Copy } from "@/lib/copy";
 import type { Locale } from "@/lib/locales";
 import { projectName, projects } from "@/lib/projects";
-import { mailLink, site, telLink, whatsappLink } from "@/lib/site";
+import { developer, site, telLink, whatsappLink } from "@/lib/site";
 import { CurrentYear } from "./current-year";
-import { ArrowIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./icons";
+import { ArrowIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./icons";
 import { Logo } from "./logo";
 
 const dot: Record<string, string> = {
@@ -18,7 +18,6 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
   const rows = [
     { href: telLink, label: f.callLabel, value: site.phoneDisplay, icon: <PhoneIcon className="h-5 w-5" />, tone: "bg-violet-deep", external: false },
     { href: whatsappLink(copy.cta.message), label: f.waLabel, value: site.phoneDisplay, icon: <WhatsAppIcon className="h-5 w-5" />, tone: "bg-lime-deep", external: true },
-    { href: mailLink, label: f.mailLabel, value: site.email, icon: <MailIcon className="h-5 w-5" />, tone: "bg-sunset-deep", external: false, small: true },
   ];
 
   return (
@@ -98,12 +97,21 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
             <p>
               {f.developedBy}{" "}
               <a
-                href="https://truviatechnologies.vercel.app"
+                href={developer.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-bold text-violet-deep underline decoration-violet/40 underline-offset-4 transition-colors hover:text-ink"
               >
-                Truvia Technologies
+                {developer.name}
+              </a>
+            </p>
+            <p>
+              {f.buildSite}{" "}
+              <a
+                href={`mailto:${developer.email}`}
+                className="font-bold text-violet-deep underline decoration-violet/40 underline-offset-4 transition-colors hover:text-ink [overflow-wrap:anywhere]"
+              >
+                {developer.email}
               </a>
             </p>
           </div>

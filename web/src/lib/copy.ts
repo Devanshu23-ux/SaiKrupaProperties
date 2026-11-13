@@ -48,7 +48,6 @@ const en = {
     sub: "Call or message us and we will arrange a site visit and share the documents.",
     call: "Call",
     whatsapp: "WhatsApp",
-    email: "Email",
     message: "Hello, I would like to book a site visit to a Sai Krupa Properties project.",
   },
   project: {
@@ -122,7 +121,7 @@ const en = {
     reach: "Talk to us",
     reachSub: "Site visits, plot details and documents — we reply fast.",
     callLabel: "Call us",
-    mailLabel: "Email us",
+    buildSite: "Want a website like this? Email",
     waLabel: "WhatsApp us",
   },
   lang: "Language",
@@ -177,7 +176,6 @@ const mr: Copy = {
     sub: "आम्हाला कॉल किंवा मेसेज करा; आम्ही साइट भेट ठरवू आणि कागदपत्रे देऊ.",
     call: "कॉल करा",
     whatsapp: "WhatsApp",
-    email: "ईमेल",
     message: "नमस्कार, मला साई कृपा प्रॉपर्टीजच्या प्रकल्पाला साइट भेट द्यायची आहे.",
   },
   project: {
@@ -251,7 +249,7 @@ const mr: Copy = {
     reach: "आमच्याशी बोला",
     reachSub: "साइट भेट, प्लॉटची माहिती आणि कागदपत्रे — आम्ही लगेच उत्तर देतो.",
     callLabel: "कॉल करा",
-    mailLabel: "ईमेल करा",
+    buildSite: "असीच वेबसाइट हवी आहे? ईमेल करा",
     waLabel: "WhatsApp करा",
   },
   lang: "भाषा",
