@@ -1,0 +1,13 @@
+# Only the new site, its geometry tool and the source layout sheets it uses are tracked.
+node_modules/
+.next/
+web/tsconfig.tsbuildinfo
+.git-web-initial-backup/
+.claude/
+web-old/
+WhatsApp Unknown*/
+WhatsApp Video*
+SaiKrupa-3D-Website-Brief.md
+YEWALI G NO 31 2LAYOUT*.pdf
+YEWALI G NO 312 COUNTOUR*.pdf
+task.md

@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Sai Krupa Properties — silent, light system.
+   Warm off-white canvas, slate ink and a soft, muted set of accents:
+   dusty blue (the "violet" token) and sage for the brand, soft amber for
+   Shivare (industrial), soft teal for Yevali (the Nira River), sage for
+   "available". Token names are kept from the first vivid theme.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-canvas: #f9faf8;
+  --color-surface: #ffffff;
+  --color-tint: #f1f3f0;
+  --color-ink: #2b3445;
+  --color-muted: #667085;
+  --color-line: #e4e7e2;
+
+  --color-violet: #6f93b5;
+  --color-violet-deep: #3f6485;
+  --color-violet-soft: #e8eff6;
+
+  --color-pink: #d9928a;
+  --color-pink-deep: #a8574f;
+  --color-pink-soft: #f8e9e6;
+
+  --color-sunset: #dba36b;
+  --color-sunset-deep: #9a6428;
+  --color-sunset-soft: #f8eddf;
+
+  --color-sun: #e6c76e;
+  --color-sun-soft: #fff4cc;
+
+  --color-river: #7bb8c4;
+  --color-river-deep: #3d7f8d;
+  --color-river-soft: #e3f1f4;
+
+  --color-lime: #8dbf9c;
+  --color-lime-deep: #3f7a55;
+  --color-lime-soft: #e6f2ea;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-micro: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-card: 0 1px 2px rgba(43, 52, 69, 0.05), 0 12px 32px -14px rgba(63, 100, 133, 0.22);
+  --shadow-lift: 0 2px 4px rgba(43, 52, 69, 0.06), 0 26px 52px -20px rgba(63, 100, 133, 0.34);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  html,
+  body {
+    max-width: 100%;
+  }
+  /* Older Safari: hidden on body only (it propagates to the viewport, so
+     sticky elements keep working). Modern browsers: clip, no scroll box. */
+  body {
+    overflow-x: hidden;
+  }
+  @supports (overflow-x: clip) {
+    html,
+    body {
+      overflow-x: clip;
+    }
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    /* iOS Safari: stop long words and numbers forcing the page wider. */
+    overflow-wrap: break-word;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  /* A grid with no explicit columns would size its single track to its widest
+     content and push the page wider than a phone. utilities (grid-cols-*) win. */
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  ::selection {
+    background-color: var(--color-pink);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-violet);
+    outline-offset: 2px;
+  }
+}
+
+/* Devanagari needs more vertical room than Latin. */
+html:lang(mr) :is(h1, h2, h3) {
+  line-height: 1.3 !important;
+}
+html:lang(mr) p,
+html:lang(mr) li {
+  line-height: 1.75;
+}
+
+/* Lenis smooth-scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.reveal-init {
+  opacity: 0;
+}
+
+/* Brand gradient text */
+.text-brand {
+  background-image: linear-gradient(100deg, #3f6485 0%, #4a8576 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-brand {
+  background-image: linear-gradient(100deg, #3f6485 0%, #4a8576 100%);
+}
+
+/* Soft colour blobs behind the hero */
+.hero-glow {
+  background:
+    radial-gradient(48rem 34rem at 88% 8%, rgba(217, 146, 138, 0.18), transparent 60%),
+    radial-gradient(44rem 30rem at 6% 6%, rgba(111, 147, 181, 0.2), transparent 60%),
+    radial-gradient(40rem 28rem at 70% 96%, rgba(141, 191, 156, 0.2), transparent 60%),
+    radial-gradient(34rem 24rem at 20% 92%, rgba(230, 199, 110, 0.18), transparent 60%);
+}
+
+/* Dotted texture used on colour panels */
+.dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1.2px, transparent 1.4px);
+  background-size: 18px 18px;
+}
+
+.field-line {
+  border-bottom: 2px solid var(--color-line);
+  transition: border-color 200ms var(--ease-micro);
+}
+.field-line:focus-within {
+  border-bottom-color: var(--color-violet);
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-anim {
+    animation: none !important;
+  }
+}
