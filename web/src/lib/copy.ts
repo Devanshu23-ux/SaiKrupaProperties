@@ -48,6 +48,7 @@ const en = {
     sub: "Call or message us and we will arrange a site visit and share the documents.",
     call: "Call",
     whatsapp: "WhatsApp",
+    email: "Email",
     message: "Hello, I would like to book a site visit to a Sai Krupa Properties project.",
   },
   project: {
@@ -118,6 +119,11 @@ const en = {
     note: "Plot areas follow the project layout sheets. Prices and availability are confirmed on enquiry.",
     rights: "All rights reserved.",
     developedBy: "Website developed by",
+    reach: "Talk to us",
+    reachSub: "Site visits, plot details and documents — we reply fast.",
+    callLabel: "Call us",
+    mailLabel: "Email us",
+    waLabel: "WhatsApp us",
   },
   lang: "Language",
 };
@@ -171,6 +177,7 @@ const mr: Copy = {
     sub: "आम्हाला कॉल किंवा मेसेज करा; आम्ही साइट भेट ठरवू आणि कागदपत्रे देऊ.",
     call: "कॉल करा",
     whatsapp: "WhatsApp",
+    email: "ईमेल",
     message: "नमस्कार, मला साई कृपा प्रॉपर्टीजच्या प्रकल्पाला साइट भेट द्यायची आहे.",
   },
   project: {
@@ -241,6 +248,11 @@ const mr: Copy = {
     note: "प्लॉटचे क्षेत्रफळ प्रकल्पाच्या लेआउट शीटनुसार आहे. किंमत व उपलब्धता चौकशीवेळी निश्चित होते.",
     rights: "सर्व हक्क राखीव.",
     developedBy: "वेबसाइट विकसक:",
+    reach: "आमच्याशी बोला",
+    reachSub: "साइट भेट, प्लॉटची माहिती आणि कागदपत्रे — आम्ही लगेच उत्तर देतो.",
+    callLabel: "कॉल करा",
+    mailLabel: "ईमेल करा",
+    waLabel: "WhatsApp करा",
   },
   lang: "भाषा",
 };

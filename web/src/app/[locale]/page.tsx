@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import { BuildingFigure } from "@/components/building-figure";
-import { ArrowIcon, PhoneIcon, TileIcon, WhatsAppIcon } from "@/components/icons";
+import { ArrowIcon, MailIcon, PhoneIcon, TileIcon, WhatsAppIcon } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { getCopy } from "@/lib/copy";
 import { hasLocale } from "@/lib/locales";
 import { projects } from "@/lib/projects";
 import { digits, totalPlots } from "@/lib/stats";
-import { site, telLink, whatsappLink } from "@/lib/site";
+import { mailLink, site, telLink, whatsappLink } from "@/lib/site";
 import Link from "next/link";
 
 const TILE_STYLES = [
@@ -162,6 +162,13 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                   >
                     <WhatsAppIcon className="h-5 w-5" />
                     {c.cta.whatsapp}
+                  </a>
+                  <a
+                    href={mailLink}
+                    className="inline-flex items-center gap-2.5 rounded-full border-2 border-white/70 bg-white/15 px-7 py-4 text-sm font-extrabold text-white backdrop-blur transition-transform hover:-translate-y-1 hover:bg-white/25"
+                  >
+                    <MailIcon className="h-5 w-5" />
+                    {c.cta.email}
                   </a>
                 </div>
               </div>

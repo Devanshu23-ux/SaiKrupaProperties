@@ -7,6 +7,8 @@ export const site = {
   /** The single contact number for every call and WhatsApp button. */
   phone: "7843079954",
   phoneDisplay: "78430 79954",
+  /** Public enquiry email. */
+  email: "truviatechnologies@gmail.com",
 } as const;
 
 /** WhatsApp deep link with a pre-filled message. */
@@ -15,5 +17,7 @@ export function whatsappLink(message: string): string {
 }
 
 export const telLink = `tel:+91${site.phone}`;
+
+export const mailLink = `mailto:${site.email}`;
 
 export const wordmark = "Sai Krupa Properties";

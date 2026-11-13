@@ -18,6 +18,15 @@ export function PhoneIcon({ className }: IconProps) {
   );
 }
 
+export function MailIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="3" />
+      <path d="m4 7.5 8 6 8-6" />
+    </svg>
+  );
+}
+
 export function ArrowIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
