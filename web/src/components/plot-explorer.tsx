@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Copy } from "@/lib/copy";
 import { getLayout, type Plot, type Pt, type ProjectSlug } from "@/lib/plots";
 import { formatInrShort, formatNumber } from "@/lib/units";
+import { plotEnquiry } from "@/lib/enquiry";
 import { whatsappLink } from "@/lib/site";
 import { WhatsAppIcon } from "./icons";
 import { toPath, viewBoxFor } from "./svg-geo";
@@ -109,11 +110,7 @@ export function PlotExplorer({ slug, projectName, copy, pricePerGuntha, locale }
   const labelSize = slug === "shivare" ? 8.5 : 6.6;
 
   /* --- details --- */
-  const enquiry = selectedPlot
-    ? locale === "mr"
-      ? `नमस्कार, मला ${projectName} मधील प्लॉट ${selectedPlot.no} बद्दल माहिती हवी आहे.`
-      : `Hello, I would like to know more about Plot ${selectedPlot.no} in ${projectName}.`
-    : "";
+  const enquiry = selectedPlot ? plotEnquiry(locale, projectName, slug, selectedPlot) : "";
 
   const price =
     selectedPlot && pricePerGuntha ? selectedPlot.areaGuntha * pricePerGuntha : null;

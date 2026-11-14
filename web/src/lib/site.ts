@@ -4,9 +4,9 @@
 export const site = {
   nameEn: "Sai Krupa Properties",
   nameMr: "साई कृपा प्रॉपर्टीज",
-  /** The single contact number for every call and WhatsApp button. */
-  phone: "7843079954",
-  phoneDisplay: "78430 79954",
+  /** The single contact number (calls and WhatsApp) for every call and WhatsApp button. */
+  phone: "9762035555",
+  phoneDisplay: "97620 35555",
 } as const;
 
 /** WhatsApp deep link with a pre-filled message. */

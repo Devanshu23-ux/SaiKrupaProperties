@@ -22,6 +22,7 @@ import {
   projects,
 } from "@/lib/projects";
 import { digits, projectStats } from "@/lib/stats";
+import { projectEnquiry } from "@/lib/enquiry";
 import { site, telLink, whatsappLink } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -63,10 +64,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   const layout = getLayout(project.slug);
   const name = projectName(project, locale);
 
-  const enquiry =
-    locale === "mr"
-      ? `नमस्कार, मला ${project.nameMr} बद्दल माहिती हवी आहे.`
-      : `Hello, I would like to know more about ${project.nameEn}.`;
+  const enquiry = projectEnquiry(locale, name);
   const mapHref = `https://www.google.com/maps/search/?api=1&query=${project.coordinates.lat},${project.coordinates.lng}`;
 
   const reach =
