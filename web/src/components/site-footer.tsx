@@ -4,7 +4,7 @@ import type { Locale } from "@/lib/locales";
 import { projectName, projects } from "@/lib/projects";
 import { developer, site, telLink, whatsappLink } from "@/lib/site";
 import { CurrentYear } from "./current-year";
-import { ArrowIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./icons";
+import { ArrowIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./icons";
 import { Logo } from "./logo";
 
 const dot: Record<string, string> = {
@@ -88,32 +88,40 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
       </div>
 
       <div className="relative border-t border-line bg-white/60 backdrop-blur">
-        <div className="mx-auto flex max-w-[1320px] flex-col gap-3 px-5 py-5 text-xs text-muted sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mx-auto flex max-w-[1320px] flex-col gap-2 px-5 pt-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p className="max-w-xl">{f.note}</p>
-          <div className="flex flex-col gap-1.5 lg:items-end">
-            <p>
-              © <CurrentYear /> {site.nameEn}. {f.rights}
-            </p>
-            <p>
-              {f.developedBy}{" "}
-              <a
-                href={developer.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-violet-deep underline decoration-violet/40 underline-offset-4 transition-colors hover:text-ink"
-              >
-                {developer.name}
-              </a>
-            </p>
-            <p>
-              {f.buildSite}{" "}
-              <a
-                href={`mailto:${developer.email}`}
-                className="font-bold text-violet-deep underline decoration-violet/40 underline-offset-4 transition-colors hover:text-ink [overflow-wrap:anywhere]"
-              >
-                {developer.email}
-              </a>
-            </p>
+          <p className="font-semibold text-ink/80">
+            © <CurrentYear /> {site.nameEn}. {f.rights}
+          </p>
+        </div>
+
+        {/* Developer credit — highlighted */}
+        <div className="mx-auto max-w-[1320px] px-5 pb-6 pt-4 sm:px-8">
+          <div className="bg-brand relative overflow-hidden rounded-[1.75rem] px-5 py-5 text-white shadow-lift sm:px-8">
+            <div aria-hidden="true" className="dots absolute inset-0 opacity-50" />
+            <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <p className="text-sm sm:text-base">
+                {f.developedBy}{" "}
+                <a
+                  href={developer.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-extrabold text-white underline decoration-white/60 decoration-2 underline-offset-4 transition-colors hover:decoration-white"
+                >
+                  {developer.name} ↗
+                </a>
+              </p>
+              <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-4">
+                <p className="text-sm font-semibold text-white/90">{f.buildSite}</p>
+                <a
+                  href={`mailto:${developer.email}`}
+                  className="inline-flex w-fit max-w-full items-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-[12px] font-extrabold text-ink shadow-lg transition-transform hover:-translate-y-0.5 min-[400px]:px-5 min-[400px]:text-[13px] sm:text-sm"
+                >
+                  <MailIcon className="h-4 w-4 shrink-0 text-violet-deep" />
+                  {developer.email}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
