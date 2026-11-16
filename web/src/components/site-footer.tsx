@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Copy } from "@/lib/copy";
 import type { Locale } from "@/lib/locales";
 import { projectName, projects } from "@/lib/projects";
-import { developer, site, telLink, whatsappLink } from "@/lib/site";
+import { developer, googleReview, site, socialLinks, telLink, whatsappLink } from "@/lib/site";
 import { CurrentYear } from "./current-year";
-import { ArrowIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./icons";
+import { ArrowIcon, GoogleIcon, MailIcon, PhoneIcon, PinIcon, SocialIcon, WhatsAppIcon } from "./icons";
 import { Logo } from "./logo";
 
 const dot: Record<string, string> = {
@@ -16,8 +16,22 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
   const f = copy.footer;
   const kicker = locale === "mr" ? "text-sm font-bold" : "text-xs font-bold uppercase tracking-[0.2em]";
   const rows = [
-    { href: telLink, label: f.callLabel, value: site.phoneDisplay, icon: <PhoneIcon className="h-5 w-5" />, tone: "bg-violet-deep", external: false },
-    { href: whatsappLink(copy.cta.message), label: f.waLabel, value: site.phoneDisplay, icon: <WhatsAppIcon className="h-5 w-5" />, tone: "bg-lime-deep", external: true },
+    { href: telLink, label: f.callLabel, value: site.phoneDisplay, icon: <PhoneIcon className="h-5 w-5" />, tone: "bg-violet-deep text-white", external: false },
+    { href: whatsappLink(copy.cta.message), label: f.waLabel, value: site.phoneDisplay, icon: <WhatsAppIcon className="h-5 w-5" />, tone: "bg-lime-deep text-white", external: true },
+    {
+      href: googleReview.reviewUrl,
+      label: f.googleReview,
+      value: (
+        <span className="inline-flex items-center gap-1.5">
+          <span>{f.googleReviewSub}</span>
+          <span className="text-amber-500 font-bold">★★★★★</span>
+        </span>
+      ),
+      icon: <GoogleIcon className="h-5 w-5" />,
+      tone: "bg-white text-ink border border-line shadow-sm",
+      external: true,
+      small: true,
+    },
   ];
 
   return (
@@ -35,13 +49,37 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
 
       <div className="relative mx-auto grid max-w-[1320px] gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[1.15fr_0.85fr_1.2fr] lg:gap-10">
         {/* Brand card */}
-        <div className="rounded-[2rem] bg-white p-6 shadow-card sm:p-8">
-          <Logo className="h-28 sm:h-32" />
-          <p className="mt-5 text-base font-semibold text-ink">{f.tag}</p>
-          <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-violet-soft px-4 py-2 text-xs font-bold text-violet-deep">
-            <PinIcon className="h-4 w-4" />
-            {locale === "mr" ? "भोर, पुणे" : "Bhor, Pune"}
-          </p>
+        <div className="flex flex-col justify-between rounded-[2rem] bg-white p-6 shadow-card sm:p-8">
+          <div>
+            <Logo className="h-28 sm:h-32" />
+            <p className="mt-5 text-base font-semibold text-ink">{f.tag}</p>
+            <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-violet-soft px-4 py-2 text-xs font-bold text-violet-deep">
+              <PinIcon className="h-4 w-4" />
+              {locale === "mr" ? "भोर, पुणे" : "Bhor, Pune"}
+            </p>
+          </div>
+
+          {/* Social media profiles */}
+          <div className="mt-6 border-t border-line/70 pt-5">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-muted">
+              {f.socialTitle}
+            </p>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${s.name} — ${s.handle}`}
+                  title={`${s.name} (${s.handle})`}
+                  className="grid h-10 w-10 place-items-center rounded-xl bg-tint text-ink/75 transition-all hover:-translate-y-1 hover:bg-violet-soft hover:text-violet-deep shadow-sm"
+                >
+                  <SocialIcon name={s.icon} className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Projects */}
@@ -63,7 +101,7 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
           </ul>
         </div>
 
-        {/* Contact */}
+        {/* Contact & Reviews */}
         <div id="contact" className="scroll-mt-28">
           <p className={`${kicker} text-sunset-deep`}>{f.reach}</p>
           <p className="mt-2 text-sm text-muted">{f.reachSub}</p>
@@ -75,10 +113,10 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
                   {...(r.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="group flex items-center gap-3.5 rounded-2xl bg-white p-3 pr-4 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-lift"
                 >
-                  <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl text-white ${r.tone}`}>{r.icon}</span>
+                  <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl ${r.tone}`}>{r.icon}</span>
                   <span className="min-w-0">
                     <span className={`block text-[11px] font-bold text-muted ${locale === "mr" ? "" : "uppercase tracking-wider"}`}>{r.label}</span>
-                    <span className={`block font-extrabold leading-snug [overflow-wrap:anywhere] ${"small" in r ? "text-[12.5px] min-[420px]:text-[15px]" : "text-[15px]"}`}>{r.value}</span>
+                    <span className={`block font-extrabold leading-snug [overflow-wrap:anywhere] ${"small" in r && r.small ? "text-[12px] min-[420px]:text-[13.5px]" : "text-[15px]"}`}>{r.value}</span>
                   </span>
                 </a>
               </li>

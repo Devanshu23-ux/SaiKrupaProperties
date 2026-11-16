@@ -123,6 +123,9 @@ const en = {
     callLabel: "Call us",
     buildSite: "Want a website like this?",
     waLabel: "WhatsApp us",
+    socialTitle: "Connect with us",
+    googleReview: "Google Review",
+    googleReviewSub: "Rate us & give feedback",
   },
   lang: "Language",
 };
@@ -251,6 +254,9 @@ const mr: Copy = {
     callLabel: "कॉल करा",
     buildSite: "असीच वेबसाइट हवी आहे?",
     waLabel: "WhatsApp करा",
+    socialTitle: "सोशल मीडियावर कनेक्ट व्हा",
+    googleReview: "गुगल रिव्ह्यू",
+    googleReviewSub: "रेटिंग आणि अभिप्राय द्या",
   },
   lang: "भाषा",
 };

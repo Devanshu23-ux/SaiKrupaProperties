@@ -9,9 +9,9 @@ import {
   switchLocalePath,
   type Locale,
 } from "@/lib/locales";
-import { site } from "@/lib/site";
+import { googleReview, site, socialLinks } from "@/lib/site";
 import { Logo } from "./logo";
-import { WhatsAppIcon } from "./icons";
+import { GoogleIcon, SocialIcon, WhatsAppIcon } from "./icons";
 
 interface SiteHeaderProps {
   locale: Locale;
@@ -119,6 +119,35 @@ export function SiteHeader({ locale, nav, whatsappHref }: SiteHeaderProps) {
               {link.label}
             </Link>
           ))}
+          <div className="mt-2 border-t border-line/60 px-2 pt-3">
+            <a
+              href={googleReview.reviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between rounded-2xl bg-tint px-4 py-2.5 text-xs font-bold text-ink transition-colors hover:bg-violet-soft"
+            >
+              <span className="flex items-center gap-2">
+                <GoogleIcon className="h-4 w-4" />
+                <span>{locale === "mr" ? "गुगलवर रिव्ह्यू द्या" : "Review us on Google"}</span>
+              </span>
+              <span className="text-amber-500 font-bold">★★★★★</span>
+            </a>
+            <div className="mt-3 flex items-center justify-around pb-1 pt-1">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${s.name} — ${s.handle}`}
+                  title={`${s.name} (${s.handle})`}
+                  className="grid h-9 w-9 place-items-center rounded-xl bg-tint text-ink/75 transition-all hover:bg-violet-soft hover:text-violet-deep"
+                >
+                  <SocialIcon name={s.icon} className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
         </nav>
       )}
     </header>
