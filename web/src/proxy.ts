@@ -29,6 +29,8 @@ function detectLocale(request: NextRequest): string {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  if (pathname.endsWith(".html")) return;
+
   const alreadyLocalised = locales.some(
     (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
   );
@@ -41,6 +43,6 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:png|jpe?g|svg|webp|avif|ico|mp4|webm|glb|gltf|txt|xml|json|woff2?)$).*)",
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:png|jpe?g|svg|webp|avif|ico|mp4|webm|glb|gltf|txt|xml|json|woff2?|html)$).*)",
   ],
 };
