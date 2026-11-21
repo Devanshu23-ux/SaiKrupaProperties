@@ -35,7 +35,77 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const project = getProject(slug);
   if (!hasLocale(locale) || !project) return {};
-  return { title: projectName(project, locale), description: projectIntro(project, locale) };
+
+  const name = projectName(project, locale);
+  const intro = projectIntro(project, locale);
+
+  const isShivare = slug === "shivare";
+  const title =
+    locale === "mr"
+      ? isShivare
+        ? "शिंवरे येथील इंडस्ट्रियल प्लॉट्स — भोर, पुणे | साई कृपा प्रॉपर्टीज"
+        : "येवली येथील निसर्गरम्य प्लॉट्स — निरा नदीकाठ, भोर | साई कृपा प्रॉपर्टीज"
+      : isShivare
+        ? "Property in Shivare — Industrial Plots in Bhor, Pune | Sai Krupa Properties"
+        : "Property in Yevali — Riverside Plots in Bhor, Pune | Sai Krupa Properties";
+
+  const keywords = isShivare
+    ? [
+        "Property in Shivare",
+        "Shivare industrial plots",
+        "Industrial plots in Bhor Pune",
+        "Land in Shivare",
+        "Plots in Shivare Pune Bangalore Highway",
+        "Gat 198 Shivare",
+        "Commercial plots Shivare",
+        "Sai Krupa Properties Shivare",
+      ]
+    : [
+        "Property in Yevali",
+        "Yevali riverside plots",
+        "Plots in Yevali Bhor",
+        "Land in Yevali Pune",
+        "Nira river plots Bhor",
+        "Plots near Shirwal Bhor",
+        "Residential and farm plots Yevali",
+        "Sai Krupa Properties Yevali",
+      ];
+
+  const pageUrl = `${site.url}/${locale}/projects/${slug}`;
+
+  return {
+    title,
+    description: intro,
+    keywords,
+    alternates: {
+      canonical: pageUrl,
+      languages: {
+        en: `${site.url}/en/projects/${slug}`,
+        mr: `${site.url}/mr/projects/${slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description: intro,
+      url: pageUrl,
+      siteName: site.nameEn,
+      type: "website",
+      images: [
+        {
+          url: project.cover,
+          width: 1200,
+          height: 630,
+          alt: name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: intro,
+      images: [project.cover],
+    },
+  };
 }
 
 const THEME = {
@@ -72,8 +142,32 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
       ? t.shivareReach.replace("{m}", digits(String(Math.round((layout.accessLengthM ?? 0) / 10) * 10), locale))
       : t.yevaliReach;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name,
+    description: projectIntro(project, locale),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: projectVillage(project, locale),
+      addressRegion: "Maharashtra",
+      postalCode: project.pincode,
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: project.coordinates.lat,
+      longitude: project.coordinates.lng,
+    },
+    url: `${site.url}/${locale}/projects/${slug}`,
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ───────── Hero ───────── */}
       <header className={`relative isolate overflow-hidden ${theme.hero} text-white`}>
         <div aria-hidden="true" className="dots absolute inset-0 opacity-50" />

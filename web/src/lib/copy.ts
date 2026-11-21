@@ -8,7 +8,7 @@ const en = {
     description:
       "Sai Krupa Properties develops numbered, measured plots in Bhor taluka, Pune — industrial plots at Shivare and riverside plots at Yevali.",
   },
-  nav: { home: "Home", what: "What we do", projects: "Projects", contact: "Contact", visit: "Book a site visit" },
+  nav: { home: "Home", what: "What we do", projects: "Projects", group: "Our Group", contact: "Contact", visit: "Book a site visit" },
   hero: {
     eyebrow: "Sai Krupa Properties",
     title1: "Land that grows with you,",
@@ -42,6 +42,14 @@ const en = {
     available: "Available",
     sizes: "Plot sizes",
     roads: "Roads",
+  },
+  group: {
+    kicker: "The Sai Krupa Group",
+    title: "A trusted multi-industry powerhouse",
+    sub: "Beyond plotted land development, the Sai Krupa Group powers heavy infrastructure, precision manufacturing, cryogenic supplies, fleet logistics, electrical contracting, and luxury riverside hospitality across Maharashtra.",
+    badge: "Group Businesses",
+    highlightPrefix: "Key capabilities:",
+    enquire: "Enquire via WhatsApp",
   },
   cta: {
     title: "Want to see the land?",
@@ -124,6 +132,7 @@ const en = {
     buildSite: "Want a website like this?",
     waLabel: "WhatsApp us",
     socialTitle: "Connect with us",
+    groupTitle: "Our Group Businesses",
     googleReview: "Google Review",
     googleReviewSub: "Rate us & give feedback",
   },
@@ -139,7 +148,7 @@ const mr: Copy = {
     description:
       "साई कृपा प्रॉपर्टीज भोर तालुका, पुणे येथे क्रमांकित, मोजणी केलेले प्लॉट्स विकसित करते — शिवरे येथे इंडस्ट्रियल आणि येवली येथे नदीकाठचे प्लॉट्स.",
   },
-  nav: { home: "मुख्यपृष्ठ", what: "आम्ही काय करतो", projects: "प्रकल्प", contact: "संपर्क", visit: "साइट भेट बुक करा" },
+  nav: { home: "मुख्यपृष्ठ", what: "आम्ही काय करतो", projects: "प्रकल्प", group: "उद्योग समूह", contact: "संपर्क", visit: "साइट भेट बुक करा" },
   hero: {
     eyebrow: "साई कृपा प्रॉपर्टीज",
     title1: "तुमच्यासोबत वाढणारी जमीन,",
@@ -173,6 +182,14 @@ const mr: Copy = {
     available: "उपलब्ध",
     sizes: "प्लॉट आकार",
     roads: "रस्ते",
+  },
+  group: {
+    kicker: "साई कृपा उद्योग समूह",
+    title: "विश्वासार्ह औद्योगिक व व्यवसाय समूह",
+    sub: "प्लॉटेड जमीन विकासासोबतच, साई कृपा उद्योग समूह अवजड क्रेन सेवा, अचूक सीएनसी लेझर व 3D ट्यूब कटिंग, लिक्विड क्रायोजेनिक गॅसेस, मालवाहतूक ताफा, इलेक्ट्रिकल इन्फ्रास्ट्रक्चर आणि निरा नदीकाठच्या लक्झरी रिसॉर्टद्वारे महाराष्ट्रात अग्रगण्य सेवा देतो.",
+    badge: "उद्योग समूह",
+    highlightPrefix: "महत्त्वाची वैशिष्ट्ये:",
+    enquire: "WhatsApp द्वारे माहिती मिळवा",
   },
   cta: {
     title: "जमीन प्रत्यक्ष पाहायची आहे?",
@@ -255,6 +272,7 @@ const mr: Copy = {
     buildSite: "असीच वेबसाइट हवी आहे?",
     waLabel: "WhatsApp करा",
     socialTitle: "सोशल मीडियावर कनेक्ट व्हा",
+    groupTitle: "आमचे उद्योग समूह",
     googleReview: "गुगल रिव्ह्यू",
     googleReviewSub: "रेटिंग आणि अभिप्राय द्या",
   },

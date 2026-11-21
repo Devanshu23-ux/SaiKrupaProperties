@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { BuildingFigure } from "@/components/building-figure";
+import { GroupSection } from "@/components/group-section";
 import { ArrowIcon, PhoneIcon, TileIcon, WhatsAppIcon } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
@@ -134,6 +135,9 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           </div>
         </div>
       </section>
+
+      {/* ───────────── Our Group Businesses ───────────── */}
+      <GroupSection locale={locale} copy={c} />
 
       {/* ───────────── Contact band ───────────── */}
       <section className="py-20 sm:py-24">

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { Copy } from "@/lib/copy";
+import { groupBusinesses, groupCategory, groupName } from "@/lib/group";
 import type { Locale } from "@/lib/locales";
 import { projectName, projects } from "@/lib/projects";
 import { developer, googleReview, site, socialLinks, telLink, whatsappLink } from "@/lib/site";
 import { CurrentYear } from "./current-year";
-import { ArrowIcon, GoogleIcon, MailIcon, PhoneIcon, PinIcon, SocialIcon, WhatsAppIcon } from "./icons";
+import { ArrowIcon, GoogleIcon, GroupBusinessIcon, MailIcon, PhoneIcon, PinIcon, SocialIcon, WhatsAppIcon } from "./icons";
 import { Logo } from "./logo";
 
 const dot: Record<string, string> = {
@@ -122,6 +123,51 @@ export function SiteFooter({ locale, copy }: { locale: Locale; copy: Copy }) {
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+
+      {/* Group Businesses Strip */}
+      <div className="relative mx-auto max-w-[1320px] px-5 pb-10 sm:px-8">
+        <div className="rounded-[2rem] border border-line bg-white/70 p-6 backdrop-blur sm:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-deep">
+                {locale === "mr" ? "उद्योग समूह" : "The Conglomerate"}
+              </p>
+              <h3 className="mt-1 text-lg sm:text-xl font-extrabold text-ink">
+                {f.groupTitle}
+              </h3>
+            </div>
+            <Link
+              href={`/${locale}#group`}
+              className="inline-flex items-center gap-2 rounded-full bg-violet-soft px-4 py-2 text-xs font-bold text-violet-deep hover:bg-violet hover:text-white transition-colors"
+            >
+              <span>{locale === "mr" ? "सर्व उद्योग पहा" : "View all businesses"}</span>
+              <ArrowIcon className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {groupBusinesses.map((b) => (
+              <Link
+                key={b.id}
+                href={`/${locale}#group`}
+                className="group flex items-center gap-3 rounded-xl border border-line/60 bg-white p-3 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-card hover:border-violet/40"
+              >
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-tint text-violet-deep group-hover:bg-violet group-hover:text-white transition-colors">
+                  <GroupBusinessIcon id={b.id} className="h-4 w-4" />
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-xs font-bold text-ink group-hover:text-violet-deep transition-colors">
+                    {groupName(b, locale)}
+                  </p>
+                  <p className="truncate text-[10.5px] text-muted">
+                    {groupCategory(b, locale)}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 

@@ -47,6 +47,14 @@ export async function generateMetadata({
       "Yevali plots Bhor",
       "Plots in Bhor taluka",
       "Sai Krupa Properties",
+      "The Sai Krupa Group",
+      "Saikrupa Crane Services",
+      "Saikrupa Laser",
+      "Saikrupa Tube Cutting",
+      "Aaryans Riverwood Resort",
+      "Saikrupa Cryogenic Gases",
+      "Bhairavnath Transport and Company",
+      "Velu Electrical",
       "Land in Shivare Pune",
       "Riverside plots Yevali",
       "Industrial plots Pune Bangalore Highway",
@@ -120,6 +128,20 @@ export default async function LocaleLayout({
       ...socialLinks.map((s) => s.url),
       googleReview.profileUrl,
     ],
+    parentOrganization: {
+      "@type": "Organization",
+      name: "The Sai Krupa Group",
+      alternateName: "साई कृपा उद्योग समूह",
+      subOrganization: [
+        { "@type": "Organization", name: "Saikrupa Crane Services" },
+        { "@type": "Organization", name: "Saikrupa Laser" },
+        { "@type": "Organization", name: "Saikrupa Tube Cutting" },
+        { "@type": "LodgingBusiness", name: "Aaryans Riverwood Resort" },
+        { "@type": "Organization", name: "Saikrupa Cryogenic Gases" },
+        { "@type": "Organization", name: "Bhairavnath Transport & Company" },
+        { "@type": "Organization", name: "Velu Electrical" },
+      ],
+    },
   };
 
   return (

@@ -171,3 +171,91 @@ export function TileIcon({ index, className }: { index: number; className?: stri
       );
   }
 }
+
+export function CraneIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M3 21h18M6 21V5l12-3v4M6 9l12-3M6 14l8-2M18 6v8m-1 2a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0m1.5 1.5v1.5a1.5 1.5 0 0 1-1.5 1.5" />
+    </svg>
+  );
+}
+
+export function LaserIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M12 2v6M8 8h8l-2 5H10L8 8zM12 13v6M4 21h16M9 17l-3 1M15 17l3 1M12 19l-1 2M12 19l1 2" />
+    </svg>
+  );
+}
+
+export function TubeCuttingIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <ellipse cx="12" cy="7" rx="8" ry="3.5" />
+      <path d="M4 7v10c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V7" />
+      <path d="M7 12l10 0M12 10.5v3" strokeDasharray="1 1" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function ResortIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9z" />
+      <path d="M9 21v-6h6v6" />
+      <path d="M1 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0" />
+      <path d="M12 4v3M9 8h6" />
+    </svg>
+  );
+}
+
+export function CryogenicGasIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="7" y="6" width="10" height="15" rx="5" />
+      <path d="M10 2h4M12 2v4M9 12h6M9 16h6" />
+      <circle cx="12" cy="9" r="1" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function TransportIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M1 4h14v12H1z" />
+      <path d="M15 8h4l3 3v5h-7V8z" />
+      <circle cx="5.5" cy="18.5" r="2.5" />
+      <circle cx="18.5" cy="18.5" r="2.5" />
+    </svg>
+  );
+}
+
+export function ElectricalIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  );
+}
+
+export function GroupBusinessIcon({ id, className }: { id: string; className?: string }) {
+  switch (id) {
+    case "crane":
+      return <CraneIcon className={className} />;
+    case "laser":
+      return <LaserIcon className={className} />;
+    case "tube-cutting":
+      return <TubeCuttingIcon className={className} />;
+    case "resort":
+      return <ResortIcon className={className} />;
+    case "cryogenic-gases":
+      return <CryogenicGasIcon className={className} />;
+    case "transport":
+      return <TransportIcon className={className} />;
+    case "electrical":
+      return <ElectricalIcon className={className} />;
+    default:
+      return <TileIcon index={0} className={className} />;
+  }
+}

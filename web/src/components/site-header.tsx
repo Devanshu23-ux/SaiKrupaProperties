@@ -15,7 +15,7 @@ import { GoogleIcon, SocialIcon, WhatsAppIcon } from "./icons";
 
 interface SiteHeaderProps {
   locale: Locale;
-  nav: { home: string; what: string; projects: string; contact: string; visit: string };
+  nav: { home: string; what: string; projects: string; group: string; contact: string; visit: string };
   whatsappHref: string;
 }
 
@@ -35,6 +35,7 @@ export function SiteHeader({ locale, nav, whatsappHref }: SiteHeaderProps) {
     { href: `/${locale}`, label: nav.home },
     { href: `/${locale}#what`, label: nav.what },
     { href: `/${locale}#projects`, label: nav.projects },
+    { href: `/${locale}#group`, label: nav.group },
     { href: `/${locale}#contact`, label: nav.contact },
   ];
 
